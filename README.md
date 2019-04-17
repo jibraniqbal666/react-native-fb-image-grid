@@ -12,7 +12,7 @@
 - [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
 ## Github
-- [![GitHub stars](https://img.shields.io/github/stars/jibraniqbal666/react-native-fb-image-grid.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/jibraniqbal666/react-native-fb-image-grid)
+- https://github.com/jibraniqbal666/react-native-fb-image-grid
 
 ## Install
 
@@ -39,6 +39,4 @@ __NOTE: Container that you are putting your FBGrid Width and Height must be calc
       // image Url is the image you have clicked.
     }
 ```
-    
-https://github.com/jibraniqbal666/react-native-fb-image-grid
-
+   
