@@ -23,6 +23,9 @@
 __NOTE: Container that you are putting your FBGrid Width and Height must be calculated, or it will not appear.__
 
 ```javascript
+
+import FbGrid from "react-native-fb-image-grid";
+
      <FbGrid
             images={[
               "https://facebook.github.io/react-native/docs/assets/favicon.png",
@@ -39,4 +42,7 @@ __NOTE: Container that you are putting your FBGrid Width and Height must be calc
       // image Url is the image you have clicked.
     }
 ```
+## ScreenShot
+![alt text](https://github.com/jibraniqbal666/react-native-fb-image-grid/blob/master/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%20X%20-%202019-04-16%20at%2018.09.53.png?raw=true)
+
    
