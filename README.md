@@ -43,6 +43,6 @@ import FbGrid from "react-native-fb-image-grid";
     }
 ```
 ## ScreenShot
-![alt text](https://github.com/jibraniqbal666/react-native-fb-image-grid/blob/master/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%20X%20-%202019-04-16%20at%2018.09.53.png?raw=true)
+<img src="https://github.com/jibraniqbal666/react-native-fb-image-grid/blob/master/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%20X%20-%202019-04-16%20at%2018.09.53.png?raw=true" width="200">
 
    
