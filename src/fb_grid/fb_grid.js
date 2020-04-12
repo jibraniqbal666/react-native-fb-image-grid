@@ -9,7 +9,7 @@ import { Platform, StyleSheet, Text, View, Image, TouchableOpacity } from "react
 
 const ImageItem = props => {
   return props.image ? (
-    <TouchableOpacity style={__styles.image_view} onPress={() => props.onPress(props.image)}>
+    <TouchableOpacity style={__styles.image_view} onPress={(event) => props.onPress(props.image, props.index, event)}>
       <Image
         style={__styles.image}
         resizeMode="cover"
@@ -19,15 +19,15 @@ const ImageItem = props => {
       />
     </TouchableOpacity>
   ) : (
-    <View />
-  )
+      <View />
+    )
 }
 
 const TwoImages = props => {
   return (
     <>
-      <ImageItem image={props.images[0]} onPress={props.onPress} />
-      <ImageItem image={props.images[1]} onPress={props.onPress} />
+      <ImageItem image={props.images[0]} onPress={props.onPress} index={0} />
+      <ImageItem image={props.images[1]} onPress={props.onPress} index={1} />
     </>
   )
 }
@@ -35,13 +35,13 @@ const TwoImages = props => {
 const renderImages = (start, overflow, images, onPress) => {
   return (
     <>
-      <ImageItem image={images[start]} onPress={onPress} />
+      <ImageItem image={images[start]} onPress={onPress} index={start}/>
       {images[start + 1] && (
         <View style={__styles.image_view}>
-          <ImageItem image={images[start + 1]} onPress={onPress} />
+          <ImageItem image={images[start + 1]} onPress={onPress} index={start + 1} />
           {overflow && (
             <TouchableOpacity
-              onPress={event => onPress(event, images[start + 1])}
+              onPress={event => onPress(images[start + 1], start + 1, event)}
               style={__styles.item_view_overlay}
             >
               <Text style={__styles.text}>{`+${images.length - 5}`}</Text>
@@ -61,8 +61,8 @@ export default class FbGrid extends Component {
         {images.length < 3 ? (
           <TwoImages images={images} onPress={onPress} />
         ) : (
-          <ImageItem image={images[0]} onPress={onPress} />
-        )}
+            <ImageItem image={images[0]} onPress={onPress} index={0} />
+          )}
         {images.length > 2 && (
           <View style={__styles.container}>{renderImages(1, false, images, onPress)}</View>
         )}
