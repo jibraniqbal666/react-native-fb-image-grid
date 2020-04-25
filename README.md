@@ -38,8 +38,8 @@ import FbGrid from "react-native-fb-image-grid";
             onPress={onPress}
           /> 
           
-    const onPress = imageUrl => {
-      // image Url is the image you have clicked.
+    const onPress = (url, index, event) => {
+      // url and index of the image you have clicked alongwith onPress event.
     }
 ```
 ## ScreenShot
