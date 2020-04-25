@@ -9,9 +9,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 const ImageItem = (props) => {
   return props.image ? (
-    <TouchableOpacity
-      style={styles.image_view}
-      onPress={(event) => props.onPress(props.image, props.index, event)}>
+    <TouchableOpacity style={styles.image_view} onPress={(event) => props.onPress(props.image, props.index, event)}>
       <Image
         style={styles.image}
         resizeMode="cover"
@@ -22,8 +20,8 @@ const ImageItem = (props) => {
     </TouchableOpacity>
   ) : (
       <View />
-    );
-};
+    )
+}
 
 const TwoImages = (props) => {
   return (
