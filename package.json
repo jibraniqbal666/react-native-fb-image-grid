@@ -22,7 +22,7 @@
     "ui",
     "image"
   ],
-  "author": "Jibran Iqbal<contact@archriss.com> (github.com/jibraniqbal666)",
+  "author": "Jibran Iqbal<contact@jibran.com> (github.com/jibraniqbal666)",
   "license": "MIT",
   "dependencies": {
     "metro-react-native-babel-preset": "^0.53.1"
