@@ -4,12 +4,14 @@
  *
  * (c) Copyright by Jibran.
  **/
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import React, {Component} from 'react';
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 
 const ImageItem = (props) => {
   return props.image ? (
-    <TouchableOpacity style={styles.image_view} onPress={(event) => props.onPress(props.image, props.index, event)}>
+    <TouchableOpacity
+      style={styles.image_view}
+      onPress={(event) => props.onPress(props.image, props.index, event)}>
       <Image
         style={styles.image}
         resizeMode="cover"
@@ -19,9 +21,9 @@ const ImageItem = (props) => {
       />
     </TouchableOpacity>
   ) : (
-      <View />
-    )
-}
+    <View />
+  );
+};
 
 const TwoImages = (props) => {
   return (
@@ -58,14 +60,14 @@ const renderImages = (start, overflow, images, onPress) => {
 
 export default class FbGrid extends Component {
   render() {
-    const { images, style, onPress } = this.props;
+    const {images, style, onPress} = this.props;
     return images.length > 0 ? (
-      <View style={{ ...styles.container_row, ...style }}>
+      <View style={{...styles.container_row, ...style}}>
         {images.length < 3 ? (
           <TwoImages images={images} onPress={onPress} />
         ) : (
-            <ImageItem image={images[0]} onPress={onPress} index={0} />
-          )}
+          <ImageItem image={images[0]} onPress={onPress} index={0} />
+        )}
         {images.length > 2 && (
           <View style={styles.container}>
             {renderImages(1, false, images, onPress)}
