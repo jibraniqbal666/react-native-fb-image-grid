@@ -1,17 +1,19 @@
 /**
  * Author:    Jibran
  * Created:   16.04.2019
- * 
+ *
  * (c) Copyright by Jibran.
  **/
-import React, { Component } from "react"
-import { Platform, StyleSheet, Text, View, Image, TouchableOpacity } from "react-native"
+import React from 'react';
+import {Text, View, Image, TouchableOpacity} from 'react-native';
 
-const ImageItem = props => {
+const ImageItem = (props) => {
   return props.image ? (
-    <TouchableOpacity style={__styles.image_view} onPress={(event) => props.onPress(props.image, props.index, event)}>
+    <TouchableOpacity
+      style={styles.image_view}
+      onPress={(event) => props.onPress(props.image, props.index, event)}>
       <Image
-        style={__styles.image}
+        style={styles.image}
         resizeMode="cover"
         source={{
           uri: props.image,
@@ -19,66 +21,71 @@ const ImageItem = props => {
       />
     </TouchableOpacity>
   ) : (
-      <View />
-    )
-}
+    <View />
+  );
+};
 
-const TwoImages = props => {
+const TwoImages = (props) => {
   return (
     <>
       <ImageItem image={props.images[0]} onPress={props.onPress} index={0} />
       <ImageItem image={props.images[1]} onPress={props.onPress} index={1} />
     </>
-  )
-}
+  );
+};
 
 const renderImages = (start, overflow, images, onPress) => {
   return (
     <>
-      <ImageItem image={images[start]} onPress={onPress} index={start}/>
+      <ImageItem image={images[start]} onPress={onPress} index={start} />
       {images[start + 1] && (
-        <View style={__styles.image_view}>
-          <ImageItem image={images[start + 1]} onPress={onPress} index={start + 1} />
+        <View style={styles.image_view}>
+          <ImageItem
+            image={images[start + 1]}
+            onPress={onPress}
+            index={start + 1}
+          />
           {overflow && (
             <TouchableOpacity
-              onPress={event => onPress(images[start + 1], start + 1, event)}
-              style={__styles.item_view_overlay}
-            >
-              <Text style={__styles.text}>{`+${images.length - 5}`}</Text>
+              onPress={(event) => onPress(images[start + 1], start + 1, event)}
+              style={styles.item_view_overlay}>
+              <Text style={styles.text}>{`+${images.length - 5}`}</Text>
             </TouchableOpacity>
           )}
         </View>
       )}
     </>
-  )
-}
+  );
+};
 
 export default class FbGrid extends Component {
   render() {
-    const { images, style, onPress } = this.props
+    const {images, style, onPress} = this.props;
     return images.length > 0 ? (
-      <View style={{ ...__styles.container_row, ...style }}>
+      <View style={{...styles.container_row, ...style}}>
         {images.length < 3 ? (
           <TwoImages images={images} onPress={onPress} />
         ) : (
-            <ImageItem image={images[0]} onPress={onPress} index={0} />
-          )}
+          <ImageItem image={images[0]} onPress={onPress} index={0} />
+        )}
         {images.length > 2 && (
-          <View style={__styles.container}>{renderImages(1, false, images, onPress)}</View>
+          <View style={styles.container}>
+            {renderImages(1, false, images, onPress)}
+          </View>
         )}
         {images.length > 3 && (
-          <View style={__styles.container}>
+          <View style={styles.container}>
             {renderImages(3, images.length > 5, images, onPress)}
           </View>
         )}
       </View>
-    ) : null
+    ) : null;
   }
 }
 
-export const __styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container_row: {
-    flexDirection: "row",
+    flexDirection: 'row',
     padding: 4,
   },
 
@@ -93,32 +100,32 @@ export const __styles = StyleSheet.create({
   },
 
   image: {
-    width: "100%",
-    height: "100%",
+    width: '100%',
+    height: '100%',
     borderRadius: 6,
-    backgroundColor: "grey",
+    backgroundColor: 'grey',
   },
 
   item_view: {
     flex: 1,
-    backgroundColor: "white",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: 6,
   },
 
   item_view_overlay: {
-    width: "100%",
-    height: "100%",
-    position: "absolute",
-    backgroundColor: "rgba(52, 52, 52, 0.8)",
-    justifyContent: "center",
-    alignItems: "center",
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    backgroundColor: 'rgba(52, 52, 52, 0.8)',
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 6,
   },
 
   text: {
-    color: "white",
+    color: 'white',
     fontSize: 18,
   },
-})
+});

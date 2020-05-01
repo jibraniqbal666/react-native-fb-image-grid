@@ -3,14 +3,14 @@
  * https://github.com/facebook/react-native
  *
  * @format
- * @flow
+ * @flow strict-local
  */
 
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, View } from "react-native";
 import FbGrid from "react-native-fb-image-grid";
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -22,7 +22,7 @@ export default class App extends Component {
               "https://facebook.github.io/react-native/docs/assets/favicon.png",
               "https://facebook.github.io/react-native/docs/assets/favicon.png",
               "https://facebook.github.io/react-native/docs/assets/favicon.png",
-              "https://facebook.github.io/react-native/docs/assets/favicon.png"
+              "https://facebook.github.io/react-native/docs/assets/favicon.png",
             ]}
           />
         </View>
@@ -35,10 +35,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#eee"
+    backgroundColor: "#eee",
   },
   inner_container: {
     width: "100%",
-    height: "20%"
-  }
+    height: "20%",
+  },
 });
+
+export default App;
