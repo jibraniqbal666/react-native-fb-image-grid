@@ -4,7 +4,7 @@
   "description": "A compatibility package of popular package react-fb-image-grid for react-native",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/jibraniqbal666/react-native-fb-image-grid/issues"
   },
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "jest": "^25.5.3"
+  }
 }
