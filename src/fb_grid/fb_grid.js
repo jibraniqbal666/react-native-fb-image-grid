@@ -4,8 +4,8 @@
  *
  * (c) Copyright by Jibran.
  **/
-import React from 'react';
-import {Text, View, Image, TouchableOpacity} from 'react-native';
+import React, {Component} from 'react';
+import {Text, View, Image, TouchableOpacity, StyleSheet} from 'react-native';
 
 const ImageItem = (props) => {
   return props.image ? (
