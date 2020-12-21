@@ -7,8 +7,8 @@
 
 ## NPM
 
-- stable release version: ![version](https://img.shields.io/badge/version-0.0.4-blue.svg?cacheSeconds=2592000)
-- package downloads: ![downloads](https://img.shields.io/badge/downloads-22%2Fweek-brightgreen.svg?cacheSeconds=2592000)
+- stable release version: ![version](https://img.shields.io/badge/version-0.0.5-blue.svg?cacheSeconds=2592000)
+- package downloads: ![downloads](https://img.shields.io/badge/downloads-175%2Fweek-brightgreen.svg?cacheSeconds=2592000)
 - [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 - https://www.npmjs.com/package/react-native-fb-image-grid
 
