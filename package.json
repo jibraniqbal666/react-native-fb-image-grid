@@ -1,6 +1,6 @@
 {
   "name": "react-native-fb-image-grid",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A compatibility package of popular package react-fb-image-grid for react-native",
   "main": "index.js",
   "scripts": {
@@ -25,7 +25,7 @@
   "author": "Jibran Iqbal<contact@jibran.com> (github.com/jibraniqbal666)",
   "license": "MIT",
   "dependencies": {
-    "metro-react-native-babel-preset": "^0.53.1"
+    "metro-react-native-babel-preset": "^0.64.0"
   },
   "homepage": "https://github.com/jibraniqbal666/react-native-fb-image-grid",
   "bugs": {
@@ -33,6 +33,6 @@
   },
   "readmeFilename": "README.md",
   "devDependencies": {
-    "jest": "^25.5.3"
+    "jest": "^26.6.3"
   }
 }
