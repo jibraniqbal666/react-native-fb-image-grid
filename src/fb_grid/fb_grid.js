@@ -127,7 +127,7 @@ export const styles = StyleSheet.create({
 
   image_view: {
     flex: 1,
-    margin: 2,
+    margin: 0,
   },
 
   image: {
