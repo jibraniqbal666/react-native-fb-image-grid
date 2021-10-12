@@ -11,7 +11,10 @@ const ImageItem = (props) => {
   return props.image ? (
     <TouchableOpacity
       style={styles.image_view}
-      onPress={(event) => props.onPress(props.image, props.index, event)}>
+      onPress={(event) => props.onPress(props.image, props.index, event)}
+      onLongPress={(event) =>
+        props.onLongPress(props.image, props.index, event)
+      }>
       <Image
         style={styles.image}
         resizeMode="cover"
@@ -28,26 +31,45 @@ const ImageItem = (props) => {
 const TwoImages = (props) => {
   return (
     <>
-      <ImageItem image={props.images[0]} onPress={props.onPress} index={0} />
-      <ImageItem image={props.images[1]} onPress={props.onPress} index={1} />
+      <ImageItem
+        image={props.images[0]}
+        onPress={props.onPress}
+        onLongPress={props.onLongPress}
+        index={0}
+      />
+      <ImageItem
+        image={props.images[1]}
+        onPress={props.onPress}
+        onLongPress={props.onLongPress}
+        index={1}
+      />
     </>
   );
 };
 
-const renderImages = (start, overflow, images, onPress) => {
+const renderImages = (start, overflow, images, onPress, onLongPress) => {
   return (
     <>
-      <ImageItem image={images[start]} onPress={onPress} index={start} />
+      <ImageItem
+        image={images[start]}
+        onPress={onPress}
+        onLongPress={onLongPress}
+        index={start}
+      />
       {images[start + 1] && (
         <View style={styles.image_view}>
           <ImageItem
             image={images[start + 1]}
             onPress={onPress}
+            onLongPress={onLongPress}
             index={start + 1}
           />
           {overflow && (
             <TouchableOpacity
               onPress={(event) => onPress(images[start + 1], start + 1, event)}
+              onLongPress={(event) =>
+                onLongPress(images[start + 1], start + 1, event)
+              }
               style={styles.item_view_overlay}>
               <Text style={styles.text}>{`+${images.length - 5}`}</Text>
             </TouchableOpacity>
@@ -60,22 +82,31 @@ const renderImages = (start, overflow, images, onPress) => {
 
 export default class FbGrid extends Component {
   render() {
-    const {images, style, onPress} = this.props;
+    const {images, style, onPress, onLongPress} = this.props;
     return images.length > 0 ? (
       <View style={{...styles.container_row, ...style}}>
         {images.length < 3 ? (
-          <TwoImages images={images} onPress={onPress} />
+          <TwoImages
+            images={images}
+            onPress={onPress}
+            onLongPress={onLongPress}
+          />
         ) : (
-          <ImageItem image={images[0]} onPress={onPress} index={0} />
+          <ImageItem
+            image={images[0]}
+            onPress={onPress}
+            onLongPress={onLongPress}
+            index={0}
+          />
         )}
         {images.length > 2 && (
           <View style={styles.container}>
-            {renderImages(1, false, images, onPress)}
+            {renderImages(1, false, images, onPress, onLongPress)}
           </View>
         )}
         {images.length > 3 && (
           <View style={styles.container}>
-            {renderImages(3, images.length > 5, images, onPress)}
+            {renderImages(3, images.length > 5, images, onPress, onLongPress)}
           </View>
         )}
       </View>
@@ -96,7 +127,7 @@ export const styles = StyleSheet.create({
 
   image_view: {
     flex: 1,
-    margin: 2,
+    margin: 0,
   },
 
   image: {
